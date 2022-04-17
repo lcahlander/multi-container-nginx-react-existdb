@@ -14,7 +14,7 @@ services:
 #      - "3000:3000"
     container_name: "client"
   backend:
-    image: duncdrum/existdb:latest
+    image: duncdrum/existdb:6.0.1
     ports:
       - "8080:8080"
     volumes:
