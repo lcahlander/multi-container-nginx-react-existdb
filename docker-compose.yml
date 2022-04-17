@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  nginx:
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "80:80"
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+#    ports:
+#      - "3000:3000"
+    container_name: "client"
+  backend:
+    image: duncdrum/existdb:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./db/exist-volume:/exist/webapp/WEB-INF
+    container_name: "backend"
+    env_file:
+      - ./env/backend.env
+
