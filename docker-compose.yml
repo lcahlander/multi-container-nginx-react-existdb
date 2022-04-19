@@ -10,16 +10,19 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./client
-#    ports:
-#      - "3000:3000"
+    #    ports:
+    #      - "3000:3000"
     container_name: "client"
   backend:
     image: duncdrum/existdb:6.0.1
     ports:
       - "8080:8080"
     volumes:
-      - ./db/exist-volume:/exist/webapp/WEB-INF/
+      - $PWD/db/data:/exist/data/
+      - $PWD/db/logs:/exist/logs/
     container_name: "backend"
     env_file:
       - ./env/backend.env
+
+
 
