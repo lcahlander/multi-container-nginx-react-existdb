@@ -16,6 +16,7 @@
         proxy_set_header Content-Length "";           # ''
         proxy_pass $oidc_jwt_keyfile;                 # Expecting to find a URI here
         proxy_ignore_headers Cache-Control Expires Set-Cookie; # Does not influence caching
+        proxy_set_header    Accept-Encoding "gzip";
     }
 
     location @do_oidc_flow {
@@ -42,6 +43,7 @@
         proxy_set_body        "grant_type=authorization_code&client_id=$oidc_client&$args&redirect_uri=$redirect_base$redir_location";
         proxy_method          POST;
         proxy_pass            $oidc_token_endpoint;
+        proxy_set_header    Accept-Encoding "gzip";
    }
 
     location = /_refresh {

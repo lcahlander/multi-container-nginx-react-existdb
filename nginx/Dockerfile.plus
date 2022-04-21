@@ -86,7 +86,7 @@ COPY configs/* /etc/nginx/conf.d/
 COPY nginx-openid-connect/openid_connect_configuration.conf /etc/nginx/conf.d/
 
 # Move main NGINX config to the right location
-RUN mv /etc/nginx/conf.d/nginx.conf ..
+RUN mv /etc/nginx/conf.d/nginx.conf /etc/nginx/
 
 EXPOSE 80
 
