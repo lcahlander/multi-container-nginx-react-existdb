@@ -31,7 +31,7 @@ import module namespace jwt = "http://exist-db.org/security/jwt/xquery"
     at "java:org.exist.security.realm.jwt.xquery.JWTModule";
 :)
 
-declare function login:authenticate($authorization as xs:string?, $cookie1 as xs:string?, $cookie2 as xs:string?)
+declare function login:authenticate($authorization as xs:string?)
 as empty-sequence()
 {
     if ($authorization)

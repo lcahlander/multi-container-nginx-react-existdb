@@ -37,8 +37,6 @@ declare namespace test="http://exist-db.org/xquery/xqsuite";
 (:~
 Get the details of the current user.
 @param $authorization The authorization token for RBAC
-@param $cookie1 The authorization as a cookie
-@param $cookie2 The authorization as a cookie
 @return
 @custom:openapi-tag Security
  :)
@@ -52,13 +50,11 @@ declare
     %output:media-type("application/json")
     %output:method("json")
 function whoami:get(
-                $authorization as xs:string*,
-                $cookie1 as xs:string*,
-                $cookie2 as xs:string*
+                $authorization as xs:string*
 )
 as map(*)
 {
-    let $login := login:authenticate($authorization[1], $cookie1[1], $cookie2[1])
+    let $login := login:authenticate($authorization[1])
 
     let $names := map {
         "http://axschema.org/contact/email": "email",
