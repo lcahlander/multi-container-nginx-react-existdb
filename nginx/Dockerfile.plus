@@ -31,7 +31,7 @@ RUN --mount=type=secret,id=nginx-crt,dst=cert.pem \
         # nginx-plus-module-image-filter=${NGINX_VERSION}-${PKG_RELEASE} \
         # nginx-plus-module-perl \
         # nginx-plus-module-perl=${NGINX_VERSION}-${PKG_RELEASE} \
-        # nginx-plus-module-njs \
+        nginx-plus-module-njs \
         # nginx-plus-module-njs=${NGINX_VERSION}.${NJS_VERSION}-${PKG_RELEASE} \
     " \
     KEY_SHA512="e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin" \
@@ -47,7 +47,7 @@ RUN --mount=type=secret,id=nginx-crt,dst=cert.pem \
     && apk del .cert-deps \
     && cat cert.pem > /etc/apk/cert.pem \
     && cat cert.key > /etc/apk/cert.key \
-    && apk add -X "https://pkgs.nginx.com/plus/alpine/v$(egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release)/main" --no-cache $nginxPackages \
+    && apk add -X "https://pkgs.nginx.com/plus/alpine/v$(egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release)/main" --no-cache $nginxPackages jq \
     && if [ -n "/etc/apk/keys/nginx_signing.rsa.pub" ]; then rm -f /etc/apk/keys/nginx_signing.rsa.pub; fi \
     && if [ -n "/etc/apk/cert.key" && -n "/etc/apk/cert.pem"]; then rm -f /etc/apk/cert.key /etc/apk/cert.pem; fi \
 # Bring in gettext so we can get `envsubst`, then throw
@@ -75,6 +75,18 @@ RUN --mount=type=secret,id=nginx-crt,dst=cert.pem \
 # Forward request and error logs to Docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
+
+# Delete the default welcome to nginx page.
+RUN rm /usr/share/nginx/html/*
+
+# Copy over configs
+COPY configs/* /etc/nginx/conf.d/
+
+# Copy the generated OIDC config
+COPY nginx-openid-connect/openid_connect_configuration.conf /etc/nginx/conf.d/
+
+# Move main NGINX config to the right location
+RUN mv /etc/nginx/conf.d/nginx.conf /etc/nginx/
 
 EXPOSE 80
 

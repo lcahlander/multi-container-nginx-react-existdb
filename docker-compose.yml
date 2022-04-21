@@ -1,9 +1,12 @@
 version: "3.3"
 services:
   nginx:
-    build:
-      dockerfile: Dockerfile
-      context: ./nginx
+# Build secrets support in docker-compose is brand new per this PR: https://github.com/docker/compose/pull/9386 
+# I wasn't able to get it to work on the version of docker-compose installed on my distro so I recommend building the image first and then pulling it here per the README
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: ./nginx
+    image: nginxplus
     ports:
       - "80:80"
   client:
