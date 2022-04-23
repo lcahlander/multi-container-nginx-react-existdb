@@ -62,7 +62,7 @@ DOCKER_BUILDKIT=1 docker build \
 ```
 
 ## Configuring Auth0 Settings
-In your application settings add a new "Allowed Callback URLs" that is equal to https://server-fqdn/_codexch. (I used http://localhost_codexch in my dev install)
+In your application settings add a new "Allowed Callback URLs" that is equal to https://server-fqdn/_codexch. (I used http://localhost/_codexch in my dev install)
 
 Then, change "Token Endpoint Authentication Method" to "None" in Auth0 for your Application. This is required for PKCE authorisation code flow.
 
