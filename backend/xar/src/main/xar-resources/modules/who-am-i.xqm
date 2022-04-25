@@ -44,18 +44,18 @@ declare
     %rest:GET
     %rest:path("/example/who-am-i")
     %rest:header-param("Authorization", "{$authorization}")
-    %rest:cookie-param("auth1", "{$cookie1}")
+    %rest:cookie-param("auth_token", "{$cookie1}")
     %rest:cookie-param("auth2", "{$cookie2}")
     %rest:produces("application/json")
     %output:media-type("application/json")
     %output:method("json")
 function whoami:get(
-                $authorization as xs:string*
+                $authorization as xs:string*,
+                $cookie1 as xs:string*,
+                $cookie2 as xs:string*
 )
 as map(*)
 {
-    let $login := login:authenticate($authorization[1])
-
     let $names := map {
         "http://axschema.org/contact/email": "email",
         "http://axschema.org/pref/language": "language",
@@ -81,6 +81,9 @@ as map(*)
             else ()
     return map:merge((
         map {
+            "authorization": $authorization,
+            "auth_token": $cookie1,
+            "cookie2": $cookie2,
             "id" : $user,
             "groups" : array {
                 for $group in  $groups
