@@ -3,3 +3,5 @@
 db/data/
 db/logs/
 nginx/nginx-repo*
+/nginx/configs/openid_connect_configuration.conf
+/nginx/nginx-openid-connect
