@@ -9,6 +9,8 @@ services:
     image: nginxplus
     ports:
       - "80:80"
+    volumes:
+      - $PWD/db/nginx_logs:/var/logs/nginx/
   client:
     build:
       dockerfile: Dockerfile
