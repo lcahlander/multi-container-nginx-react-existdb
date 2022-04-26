@@ -10,7 +10,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - $PWD/db/nginx_logs:/var/logs/nginx/
+      - $PWD/db/nginx_logs:/var/log/nginx/
   client:
     build:
       dockerfile: Dockerfile

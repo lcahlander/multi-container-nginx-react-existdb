@@ -27,7 +27,6 @@ module namespace whoami = "http://exist-db.org/modules/ns/who-am-i";
 
 import module namespace sm = "http://exist-db.org/xquery/securitymanager";
 import module namespace login = "http://exist-db.org/example/modules/ns/login";
-import module namespace jwt="http://existsolutions.com/ns/jwt";
 
 
 declare namespace rest="http://exquery.org/ns/restxq";
@@ -44,6 +43,7 @@ Get the details of the current user.
 declare
     %rest:GET
     %rest:path("/example/who-am-i")
+    %rest:header-param("Bearer", "{$bearer}")
     %rest:header-param("Authorization", "{$authorization}")
     %rest:cookie-param("auth_token", "{$authToken}")
     %rest:cookie-param("auth_nonce", "{$authNonce}")
@@ -51,6 +51,7 @@ declare
     %output:media-type("application/json")
     %output:method("json")
 function whoami:get(
+                $bearer as xs:string*,
                 $authorization as xs:string*,
                 $authToken as xs:string*,
                 $authNonce as xs:string*
@@ -83,15 +84,10 @@ as map(*)
     return map:merge((
         map {
             "authorization": $authorization,
+            "bearer": $bearer,
             "auth_token": $authToken,
             "auth_nonce": $authNonce,
             "id" : $user,
-            "jwt": 
-                try { 
-                    jwt:read($authToken, "AhgfQQUXsh58rsk4ukaAv9zcy9KS-JVWpvWdfGI_Uv_dOfbx5ZY3QZ_Toxyyc4bc", 5000) 
-                } catch * { 
-                    map { 'error': fn:true() } 
-                },
             "groups" : array {
                 for $group in  $groups
                 let $name-map := map { "id" : $group }
