@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import packageJson from '../package.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import { demoBase } from './constants';
 import './App.css';
 import {Card, ListGroup, ListGroupItem, Navbar} from "react-bootstrap";
+import ReactJson from 'react-json-view'
 
 function App() {
   const [userData, setUserData] = useState({id: '', description: '', groups:[{id: '', description: ''}]});
@@ -45,6 +45,7 @@ function App() {
                 }</ListGroup>
             </Card>
         </div>
+        <ReactJson src={userData} />
     </div>
   );
 }

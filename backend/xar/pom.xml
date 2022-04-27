@@ -12,15 +12,15 @@
     </parent>
 
     <groupId>org.exist-db</groupId>
-    <artifactId>jwt-test</artifactId>
+    <artifactId>existdb-aws-restxq-example</artifactId>
     <version>1.0.0</version>
 
-    <name>JWT Decode</name>
-    <description>Decoding the JWT payload</description>
-    <url>https://exist-db.org/exist-db/jwt-decode</url>
+    <name>Example RestXQ Library</name>
+    <description>Example RestXQ Library</description>
+    <url>https://exist-db.org/example/exist-db/app</url>
 
     <organization>
-        <name>eXist-db</name>
+        <name>eXist</name>
         <url>http://exist-db.org</url>
     </organization>
 
@@ -33,14 +33,14 @@
     </licenses>
 
     <scm>
-        <url>https://www.github.com/my-organisation/example-exist-app.git</url>
-        <connection>scm:git:https://www.github.com/my-organisation/example-exist-app.git</connection>
-        <developerConnection>scm:git:https://www.github.com/my-organisation/example-exist-app.git</developerConnection>
+        <url>https://www.github.com/lcahlander/existdb-aws-restxq-example.git</url>
+        <connection>scm:git:https://www.github.com/lcahlander/existdb-aws-restxq-example.git</connection>
+        <developerConnection>scm:git:https://www.github.com/lcahlander/existdb-aws-restxq-example.git</developerConnection>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://www.github.com/my-organisation/example-exist-app/issues</url>
+        <url>https://www.github.com/lcahlander/existdb-aws-restxq-example/issues</url>
     </issueManagement>
 
     <properties>
@@ -51,7 +51,7 @@
         <exist.version>6.0.1</exist.version>
 
         <!-- used in the EXPath Package Descriptor -->
-        <package-name>https://exist-db.org/exist-db/jwt-test</package-name>
+        <package-name>https://exist-db.org/example/exist-db/app</package-name>
 
         <example.module.namespace>https://exist-db.org/exist-db/ns/jwtd</example.module.namespace>
         <example.module.java.classname>JWTModule</example.module.java.classname>

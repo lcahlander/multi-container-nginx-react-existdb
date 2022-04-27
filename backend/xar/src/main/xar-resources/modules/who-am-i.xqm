@@ -27,6 +27,7 @@ module namespace whoami = "http://exist-db.org/modules/ns/who-am-i";
 
 import module namespace sm = "http://exist-db.org/xquery/securitymanager";
 import module namespace login = "http://exist-db.org/example/modules/ns/login";
+import module namespace jwtd = "https://exist-db.org/exist-db/ns/jwtd";
 
 
 declare namespace rest="http://exquery.org/ns/restxq";
@@ -78,6 +79,7 @@ as map(*)
     return map:merge((
         map {
             "jwt": $bearer,
+            "payload": fn:parse-json(jwtd:decode($bearer, "")),
             "id" : $user,
             "groups" : array {
                 for $group in  $groups
