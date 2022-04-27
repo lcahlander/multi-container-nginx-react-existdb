@@ -44,17 +44,11 @@ declare
     %rest:GET
     %rest:path("/example/who-am-i")
     %rest:header-param("Bearer", "{$bearer}")
-    %rest:header-param("Authorization", "{$authorization}")
-    %rest:cookie-param("auth_token", "{$authToken}")
-    %rest:cookie-param("auth_nonce", "{$authNonce}")
     %rest:produces("application/json")
     %output:media-type("application/json")
     %output:method("json")
 function whoami:get(
-                $bearer as xs:string*,
-                $authorization as xs:string*,
-                $authToken as xs:string*,
-                $authNonce as xs:string*
+                $bearer as xs:string*
 )
 as map(*)
 {
@@ -83,10 +77,7 @@ as map(*)
             else ()
     return map:merge((
         map {
-            "authorization": $authorization,
-            "bearer": $bearer,
-            "auth_token": $authToken,
-            "auth_nonce": $authNonce,
+            "jwt": $bearer,
             "id" : $user,
             "groups" : array {
                 for $group in  $groups
