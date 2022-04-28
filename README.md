@@ -75,10 +75,10 @@ docker-compose up -d
 
 1. `cd backend/xar`
 2. `mvn clean package`
-3. `open http://localhost/exist`
+3. Open [http://localhost/exist](http://localhost/exist)
 4. Click on `login` in the upper right corner.
 5. Login as `admin` with no password
 6. Click on `Package Manager`
 7. Click on `Upload`
 8. Select the `.xar` file in *backend/xar/target*
-9. `open http://localhost/`
+9. Open [http://localhost/](http://localhost/)
