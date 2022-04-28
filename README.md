@@ -70,4 +70,15 @@ Then, change "Token Endpoint Authentication Method" to "None" in Auth0 for your 
 ```bash
 docker-compose up -d
 ```
-Then go to `http://localhost/` and sign in via Auth0.
+
+## Build and Install XAR
+
+1. `cd backend/xar`
+2. `mvn clean package`
+3. `open http://localhost/exist`
+4. Click on `login` in the upper right corner.
+5. Login as `admin` with no password
+6. Click on `Package Manager`
+7. Click on `Upload`
+8. Select the `.xar` file in *backend/xar/target*
+9. `open http://localhost/`
