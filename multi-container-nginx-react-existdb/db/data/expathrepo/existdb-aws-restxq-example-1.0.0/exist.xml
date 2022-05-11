@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://exist-db.org/ns/expath-pkg"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <java>
+      <namespace>https://exist-db.org/exist-db/ns/jwtd</namespace>
+      <class>org.exist.jwttest.JWTModule</class>
+   </java>
+   <jar>existdb-aws-restxq-example-1.0.0.jar</jar>
+   <jar>java-jwt-3.19.1.jar</jar>
+</package>

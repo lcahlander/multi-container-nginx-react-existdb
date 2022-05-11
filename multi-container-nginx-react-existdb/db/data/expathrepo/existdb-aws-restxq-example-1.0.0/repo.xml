@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta xmlns="http://exist-db.org/xquery/repo"
+      xmlns:repo="http://exist-db.org/xquery/repo"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <description/>
+   <author id="my-organisation">eXist-db</author>
+   <website>https://exist-db.org/example/exist-db/app</website>
+   <status>stable</status>
+   <license>GNU Lesser General Public License, version 2.1</license>
+   <copyright>true</copyright>
+   <type>application</type>
+   <target>existdb-aws-restxq-example</target>
+</meta>

@@ -1,0 +1,33 @@
+version: "3.3"
+services:
+  nginx:
+# Build secrets support in docker-compose is brand new per this PR: https://github.com/docker/compose/pull/9386 
+# I wasn't able to get it to work on the version of docker-compose installed on my distro so I recommend building the image first and then pulling it here per the README
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: ./nginx
+    image: nginxplus
+    ports:
+      - "80:80"
+    volumes:
+      - $PWD/db/nginx_logs:/var/log/nginx/
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    #    ports:
+    #      - "3000:3000"
+    container_name: "client"
+  backend:
+    image: duncdrum/existdb:6.0.1
+    ports:
+      - "8080:8080"
+    volumes:
+      - $PWD/db/data:/exist/data/
+      - $PWD/db/logs:/exist/logs/
+    container_name: "backend"
+    env_file:
+      - ./env/backend.env
+
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://expath.org/ns/pkg"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         name="https://exist-db.org/example/exist-db/app"
+         abbrev="existdb-aws-restxq-example"
+         version="1.0.0"
+         spec="1.0">
+   <title>Example RestXQ Library</title>
+   <home>https://exist-db.org/example/exist-db/app</home>
+   <dependency processor="http://exist-db.org" semver-min="6.0.1"/>
+   <xquery>
+      <namespace>http://exist-db.org/example/modules/ns/login</namespace>
+      <file>login.xqm</file>
+   </xquery>
+</package>

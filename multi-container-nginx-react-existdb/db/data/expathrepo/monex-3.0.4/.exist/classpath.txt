@@ -1,0 +1,4 @@
+/exist/data/expathrepo/monex-3.0.4/content/monex-3.0.4.jar
+/exist/data/expathrepo/monex-3.0.4/content/jackson-databind-2.13.1.jar
+/exist/data/expathrepo/monex-3.0.4/content/javax.websocket-api-1.1.jar
+/exist/data/expathrepo/monex-3.0.4/content/jackson-annotations-2.13.1.jar

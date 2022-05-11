@@ -1,0 +1,2 @@
+/exist/data/expathrepo/existdb-aws-restxq-example-1.0.0/content/existdb-aws-restxq-example-1.0.0.jar
+/exist/data/expathrepo/existdb-aws-restxq-example-1.0.0/content/java-jwt-3.19.1.jar
