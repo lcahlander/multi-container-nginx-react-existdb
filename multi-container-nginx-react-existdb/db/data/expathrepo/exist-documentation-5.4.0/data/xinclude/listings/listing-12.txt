@@ -1,2 +1,0 @@
-<xi:include href="/db/apps/demo/data" 
-  xpointer="xpointer(//SPEECH[ft:query(., '"cursed spite"')]/LINE[1])"/>

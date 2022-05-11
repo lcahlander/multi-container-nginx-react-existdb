@@ -1,2 +1,0 @@
-let $expanded := util:expand($hit, "expand-xincludes=no")
-return $expanded//exist:match

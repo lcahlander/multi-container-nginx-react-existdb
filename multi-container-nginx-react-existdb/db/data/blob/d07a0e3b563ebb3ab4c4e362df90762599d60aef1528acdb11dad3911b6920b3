@@ -1,3 +1,0 @@
-<create qname="mods:namePart" 
-        type="xs:string" 
-        collation="?lang=en-US&amp;strength=primary"/>

@@ -1,3 +1,0 @@
-<li>
-  <a href="view-item.xq?id={$term/id/text()}">{$term-name}</a>
-</li>

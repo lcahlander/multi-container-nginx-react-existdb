@@ -1,6 +1,0 @@
-<validation mode="auto">
-  <entity-resolver>
-    <catalog uri="xmldb:exist:///db/grammar/catalog.xml"/>
-    <catalog uri="${WEBAPP_HOME}/WEB-INF/catalog.xml"/>
-  </entity-resolver>
-</validation>

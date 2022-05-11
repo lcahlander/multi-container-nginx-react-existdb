@@ -1,5 +1,0 @@
-let $query :=
-    <query>
-        <phrase><term>cauldron</term><term>boil</term></phrase>
-    </query>
-return //SPEECH[ft:query(., $query)]

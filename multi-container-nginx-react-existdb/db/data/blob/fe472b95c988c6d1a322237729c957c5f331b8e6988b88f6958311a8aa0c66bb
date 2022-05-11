@@ -1,4 +1,0 @@
-let $query := <query><bool min="3"><term>witch</term></bool></query>
-
-return
-  //SPEECH[ft:query(LINE, $query)]        

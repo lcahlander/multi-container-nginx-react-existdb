@@ -1,1 +1,0 @@
-fn:serialize($doc, map {  xs:QName("exist:expand-xincludes"): true() })

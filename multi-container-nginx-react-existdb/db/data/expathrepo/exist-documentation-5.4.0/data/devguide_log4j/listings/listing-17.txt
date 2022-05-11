@@ -1,2 +1,0 @@
-SomeClass  someObj = new SomeClass(…);
-logger.info( someObj );

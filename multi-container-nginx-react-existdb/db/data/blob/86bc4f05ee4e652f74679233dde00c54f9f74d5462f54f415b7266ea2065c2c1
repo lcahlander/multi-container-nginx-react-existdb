@@ -1,4 +1,0 @@
-public boolean isTraceEnabled();
-   public boolean isDebugEnabled();
-   public boolean isInfoEnabled();
-   public Boolean isEnabledFor(Level);

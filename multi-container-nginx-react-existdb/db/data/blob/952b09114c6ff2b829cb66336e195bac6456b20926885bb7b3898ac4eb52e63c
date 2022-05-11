@@ -1,5 +1,0 @@
-public StreamListener getListener() {      
-        if (currentDoc == null || currentMode == StreamListener.REMOVE_ALL_NODES)
-	  return null;
-	return gmlStreamListener;
-      }

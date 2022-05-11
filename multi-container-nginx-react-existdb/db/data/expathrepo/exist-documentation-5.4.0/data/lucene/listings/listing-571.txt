@@ -1,8 +1,0 @@
-let $options := map { 
-    "facets": map { 
-        "keyword": ("indexing", "facets"),
-        "date": [("2018", "06"), ("2018", "05")]
-    }
-}
-return
-    collection("/db/articles")//db:article[ft:query(., "xml", $options)]

@@ -1,5 +1,0 @@
-let $docs :=
-    for $path in ('/db/a', '/db/b') return $collection($path)
-for $result in $docs//test[...]
-return
-    ...

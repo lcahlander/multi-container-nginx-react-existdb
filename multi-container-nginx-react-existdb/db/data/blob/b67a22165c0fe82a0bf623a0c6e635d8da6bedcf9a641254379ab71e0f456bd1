@@ -1,3 +1,0 @@
-for $e in //entry 
-where $e/@type = 'subject'
-return $e

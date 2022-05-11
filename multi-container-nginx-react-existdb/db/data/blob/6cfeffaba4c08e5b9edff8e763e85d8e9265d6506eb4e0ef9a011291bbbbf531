@@ -1,3 +1,0 @@
-for $w in ("das", "daß", "Buch", "Bücher", "Bauer", "Bäuerin", "Jagen", "Jäger") 
-order by $w collation "?lang=de-DE" 
-return $w

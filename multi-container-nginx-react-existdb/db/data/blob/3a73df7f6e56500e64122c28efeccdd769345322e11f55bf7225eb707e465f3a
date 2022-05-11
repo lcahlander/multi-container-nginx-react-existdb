@@ -1,9 +1,0 @@
-private class GMLStreamListener extends AbstractStreamListener {
-      
-        Stack srsNamesStack = new Stack();
-	ElementImpl deferredElement;
-      
-	public IndexWorker getWorker() {
-	  return AbstractGMLJDBCIndexWorker.this;
-	}
-      }

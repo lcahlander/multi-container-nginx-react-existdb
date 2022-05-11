@@ -1,4 +1,0 @@
-DatabaseInstanceManager 
-manager = (DatabaseInstanceManager) 
-    collection.getService("DatabaseInstanceManager", "1.0"); 
-manager.shutdown();

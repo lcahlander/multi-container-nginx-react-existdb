@@ -1,2 +1,0 @@
-import module namespace xdiff="http://exist-db.org/xquery/xmldiff"
-    at "java:org.exist.xquery.modules.xmldiff.XmlDiffModule";

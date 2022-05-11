@@ -1,3 +1,0 @@
-declare namespace gml = "http://www.opengis.net/gml";
-for $pol in //gml:Polygon
-return spatial:getArea($pol)

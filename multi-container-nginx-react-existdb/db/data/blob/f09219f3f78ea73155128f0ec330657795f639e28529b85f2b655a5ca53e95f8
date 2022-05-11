@@ -1,3 +1,0 @@
-declare function local:check-input($input as item()*) as xs:date {
- $input cast as xs:date
-};

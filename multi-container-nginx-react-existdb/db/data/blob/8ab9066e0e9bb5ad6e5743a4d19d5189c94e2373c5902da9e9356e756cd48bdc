@@ -1,4 +1,0 @@
-(# exist:batch-transaction #) {
-  update value //some/path/expressionA width "valueA",
-  update value //some/path/expressionB width "valueB"
-}

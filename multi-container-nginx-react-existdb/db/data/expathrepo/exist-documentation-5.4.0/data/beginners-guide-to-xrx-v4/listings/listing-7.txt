@@ -1,2 +1,0 @@
-xmldb:login('/db/apps/terms/data', 'admin', 'myadminpassword'),
-xmldb:reindex('/db/apps/terms/data')

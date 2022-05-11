@@ -1,2 +1,0 @@
-let $debug := processing-instruction xsltforms-options {'debug="yes"'}
-return ($xslt-pi, $debug, $form)

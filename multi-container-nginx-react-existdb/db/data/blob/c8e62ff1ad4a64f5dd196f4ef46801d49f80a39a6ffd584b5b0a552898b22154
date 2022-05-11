@@ -1,9 +1,0 @@
-protected Connection acquireConnection()
-        throws SQLException {   
-	return index.acquireConnection(this.broker);
-      }
-
-      protected void releaseConnection(Connection conn)
-        throws SQLException {   
-	index.releaseConnection(this.broker);
-      }

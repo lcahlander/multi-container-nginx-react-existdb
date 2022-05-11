@@ -1,3 +1,0 @@
-if ( logger.isDebugEnabled() )
-  logger.debug( "Object " + object.getDisplayIdentity() + 
-                " is being deleted" );

@@ -1,3 +1,0 @@
-(# exist:force-index-use #) {
-  //group[. = "dba"]
-}

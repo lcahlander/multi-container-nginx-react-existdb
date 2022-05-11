@@ -1,3 +1,0 @@
-<forward servlet="XSLTServlet">
-  <set-attribute name="xslt.stylesheet" value="{$exist:root}/stylesheets/db2xhtml.xsl"/>
-</forward>

@@ -1,3 +1,0 @@
-<module uri="http://exist-db.org/xquery/properties" class="org.fryske_akademy.exist.properties.PropertiesModule">
-  <parameter name="basePath" value="/run/secrets"/>
-</module>

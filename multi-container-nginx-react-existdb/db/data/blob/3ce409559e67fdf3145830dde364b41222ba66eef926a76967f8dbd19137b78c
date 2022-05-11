@@ -1,2 +1,0 @@
-if ( logger.isDebugEnabled() )
-  logger.debug( "Some constant string" );
