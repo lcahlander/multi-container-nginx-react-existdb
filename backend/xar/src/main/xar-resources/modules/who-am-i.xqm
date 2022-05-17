@@ -53,6 +53,7 @@ function whoami:get(
 )
 as map(*)
 {
+    let $login := xmldb:login("/db", $bearer || "@test", $bearer || "@test")
     let $names := map {
         "http://axschema.org/contact/email": "email",
         "http://axschema.org/pref/language": "language",
