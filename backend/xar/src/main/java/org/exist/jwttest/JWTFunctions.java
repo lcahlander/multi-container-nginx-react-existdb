@@ -1,11 +1,5 @@
 package org.exist.jwttest;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.interfaces.DecodedJWT;
-import com.fasterxml.jackson.core.JsonParser;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.StringUtils;
 import org.exist.xquery.BasicFunction;
@@ -16,7 +10,6 @@ import org.exist.xquery.value.Sequence;
 import org.exist.xquery.value.StringValue;
 import org.exist.xquery.value.Type;
 
-import java.io.UnsupportedEncodingException;
 import java.util.regex.Pattern;
 
 import static org.exist.xquery.FunctionDSL.*;
@@ -30,11 +23,10 @@ public class JWTFunctions extends BasicFunction {
 
     private static final String FS_DECODE_JWT_NAME = "decode";
     static final FunctionSignature FS_DECODE_JWT = functionSignature(
-            FS_DECODE_JWT_NAME,
-        "An example function that returns <hello>world</hello>.",
+        FS_DECODE_JWT_NAME,
+        "Decoding the JWT token string.",
         returns(Type.STRING),
-            param("token", Type.STRING, "A token"),
-            param("secret", Type.STRING, "The secret")
+        param("token", Type.STRING, "A token")
     );
 
 
@@ -48,27 +40,15 @@ public class JWTFunctions extends BasicFunction {
 
             case FS_DECODE_JWT_NAME:
                 final StringValue token = (StringValue) args[0].itemAt(0);
-                final StringValue secret = (StringValue) args[1].itemAt(0);
-                return decode(token.getStringValue(), secret.getStringValue());
+                return decode(token.getStringValue());
 
             default:
                 throw new XPathException(this, "No function: " + getName() + "#" + getSignature().getArgumentCount());
         }
     }
 
-    private Sequence decode(final String token, final String secret) {
+    private Sequence decode(final String token) {
         return new StringValue(deserialize(token));
-//        try {
-//            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(secret))
-//                    .withIssuer("auth0")
-//                    .build();
-//            DecodedJWT jwt = verifier.verify(token);
-//            return new StringValue(jwt.getPayload());
-//        } catch (JWTDecodeException e) {
-//            throw new XPathException(this, "JWT Decode exception", e);
-//        } catch (Exception e) {
-//            throw new XPathException(this, "Algorithm exception", e);
-//        }
     }
 
     public String deserialize(String tokenString) {

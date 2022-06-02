@@ -26,14 +26,12 @@ Module Overview:
 module namespace whoami = "http://exist-db.org/modules/ns/who-am-i";
 
 import module namespace sm = "http://exist-db.org/xquery/securitymanager";
-import module namespace login = "http://exist-db.org/example/modules/ns/login";
 import module namespace jwtd = "https://exist-db.org/exist-db/ns/jwtd";
 
 
 declare namespace rest="http://exquery.org/ns/restxq";
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
 declare namespace map= "http://www.w3.org/2005/xpath-functions/map";
-declare namespace test="http://exist-db.org/xquery/xqsuite";
 
 (:~
 Get the details of the current user.
@@ -53,7 +51,13 @@ function whoami:get(
 )
 as map(*)
 {
-    let $login := xmldb:login("/db", $bearer || "@test", $bearer || "@test")
+    let $login :=
+        try {
+            xmldb:login("/db", $bearer || "@test", $bearer || "@test")
+        } catch * {
+        ()
+        }
+
     let $names := map {
         "http://axschema.org/contact/email": "email",
         "http://axschema.org/pref/language": "language",
@@ -78,9 +82,13 @@ as map(*)
             then map { map:get($names, $key) : sm:get-account-metadata($user, $key) }
             else ()
     return map:merge((
+        try {
+            map {
+                "payload": fn:parse-json(jwtd:decode($bearer))
+            }
+        } catch * { () },
         map {
             "jwt": $bearer,
-            "payload": fn:parse-json(jwtd:decode($bearer, "")),
             "id" : $user,
             "groups" : array {
                 for $group in  $groups
@@ -95,4 +103,28 @@ as map(*)
             }
         },
         $properties))
+};
+
+(:~
+Get the details of the current user.
+@param $authorization The authorization token for RBAC
+@return
+@custom:openapi-tag Security
+ :)
+declare
+    %rest:GET
+    %rest:path("/example/who-am-i2")
+    %rest:header-param("Bearer", "{$bearer}")
+function whoami:get2(
+                $bearer as xs:string*
+)
+{
+    let $login :=
+        try {
+            xmldb:login("/db", $bearer || "@test", $bearer || "@test")
+        } catch * {
+        ()
+        }
+
+    return sm:id()
 };

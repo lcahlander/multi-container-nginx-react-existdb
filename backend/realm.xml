@@ -1,0 +1,13 @@
+<realm id="JWT">
+    <context>
+        <domain>test</domain>
+        <account>
+            <property key="name">$.sub</property>
+        </account>
+        <group>
+        </group>
+        <transformation>
+            <add-group>guest</add-group>
+        </transformation>
+    </context>
+</realm>

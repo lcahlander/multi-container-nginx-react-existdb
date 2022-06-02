@@ -63,12 +63,6 @@
             <artifactId>exist-core</artifactId>
             <version>${exist.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>3.19.1</version>
-        </dependency>
 
         <!-- test dependencies -->
         <dependency>
@@ -186,26 +180,6 @@
     </build>
 
     <repositories>
-        <repository>
-            <id>exist-db</id>
-            <url>https://repo.evolvedbinary.com/repository/exist-db/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>exist-db-snapshots</id>
-            <url>https://repo.evolvedbinary.com/repository/exist-db-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
     </repositories>
 
     <pluginRepositories>
