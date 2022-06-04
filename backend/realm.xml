@@ -1,13 +1,20 @@
-<realm id="JWT">
-    <context>
-        <domain>test</domain>
-        <account>
-            <property key="name">$.sub</property>
-        </account>
-        <group>
-        </group>
-        <transformation>
-            <add-group>guest</add-group>
-        </transformation>
-    </context>
-</realm>
+<security-manager xmlns="http://exist-db.org/Configuration" version="2.1">
+    <authentication-entry-point>/authentication/login</authentication-entry-point>
+    <!--<events></events>-->
+    <realm id="JWT">
+        <context>
+            <domain>test</domain>
+            <search>
+                <account>
+                    <name>$.sub</name>
+                </account>
+                <group>
+                    <name>$.['https://example.com/auth'].groups[*]</name>
+                </group>
+            </search>
+            <transformation>
+                <add-group>guest</add-group>
+            </transformation>
+        </context>
+    </realm>
+</security-manager>
