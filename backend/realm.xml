@@ -6,10 +6,19 @@
             <domain>test</domain>
             <search>
                 <account>
-                    <name>$.sub</name>
+                    <identifier>$.sub</identifier>
+                    <email>$.email</email>
+                    <language></language>
+                    <description></description>
+                    <country></country>
+                    <name>$.name</name>
+                    <firstname>$.['given_name']</firstname>
+                    <friendly>$.nickname</friendly>
+                    <lastname>$.['family_name']</lastname>
+                    <timezone></timezone>
                 </account>
                 <group>
-                    <name>$.['https://example.com/auth'].groups[*]</name>
+                    <identifier>$.['https://example.com/auth'].groups[*]</identifier>
                 </group>
             </search>
             <transformation>
