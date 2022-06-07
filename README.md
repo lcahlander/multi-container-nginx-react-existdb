@@ -75,7 +75,7 @@ docker-compose up -d
 
 1. `cd backend/xar`
 2. `mvn clean package`
-3. Open [http://localhost/exist](http://localhost/exist)
+3. Open [http://localhost:8080](http://localhost:8080)
 4. Click on `login` in the upper right corner.
 5. Login as `admin` with no password
 6. Click on `Package Manager`
