@@ -35,25 +35,25 @@ declare namespace map= "http://www.w3.org/2005/xpath-functions/map";
 
 (:~
 Get the details of the current user.
-@param $authorization The authorization token for RBAC
+@param $jwt The authorization token for RBAC
 @return
 @custom:openapi-tag Security
  :)
 declare
     %rest:GET
     %rest:path("/example/who-am-i")
-    %rest:header-param("Bearer", "{$bearer}")
+    %rest:header-param("JWT", "{$jwt}")
     %rest:produces("application/json")
     %output:media-type("application/json")
     %output:method("json")
 function whoami:get(
-                $bearer as xs:string*
+                $jwt as xs:string*
 )
 as map(*)
 {
     let $login :=
         try {
-            xmldb:login("/db", $bearer || "@test", $bearer || "@test")
+            xmldb:login("/db", $jwt || "@test", $jwt || "@test")
         } catch * {
         ()
         }
@@ -84,11 +84,11 @@ as map(*)
     return map:merge((
         try {
             map {
-                "payload": fn:parse-json(jwtd:decode($bearer))
+                "payload": fn:parse-json(jwtd:decode($jwt))
             }
         } catch * { () },
         map {
-            "jwt": $bearer,
+            "jwt": $jwt,
             "id" : $user,
             "groups" : array {
                 for $group in  $groups
@@ -114,14 +114,14 @@ Get the details of the current user.
 declare
     %rest:GET
     %rest:path("/example/who-am-i2")
-    %rest:header-param("Bearer", "{$bearer}")
+    %rest:header-param("JWT", "{$jwt}")
 function whoami:get2(
-                $bearer as xs:string*
+                $jwt as xs:string*
 )
 {
     let $login :=
         try {
-            xmldb:login("/db", $bearer || "@test", $bearer || "@test")
+            xmldb:login("/db", $jwt || "@test", $jwt || "@test")
         } catch * {
         ()
         }
