@@ -4,6 +4,8 @@ import Layout from "./Layout";
 import { base_url } from './constants'
 import { UserObject } from "./DataTypes";
 import Userinfo from "./UserInfo/UserInfo";
+import Home from "./Home/Home";
+import NoMatch from "./NoMatch/NoMatch";
 
 function App() {
     const [userData, setUserData] = useState<UserObject>({id: '', description: '', groups:[]});
@@ -28,8 +30,10 @@ function App() {
   return (
         <Routes>
           <Route path="/" element={<Layout user={userData} />}>
+              <Route index element={<Home/>} />
+              <Route path="home" element={<Home/>} />
               <Route path="user" element={<Userinfo user={userData} />} />
-
+              <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
   );
