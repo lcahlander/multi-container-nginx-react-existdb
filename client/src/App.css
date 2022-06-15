@@ -1,3 +1,62 @@
 .App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.SideBar {
+  height: 100%;
+  width: 300px;
+  background-color: grey;
+}
+
+.SideBarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.SideBarList .toprow {
+  width: 100%;
+  height: 60px;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucia Sans", Arial, sans-serif;
+}
+
+li.rstm-tree-item {
+  color: white;
+}
+
+.toprow #icon {
+  flex: 40%;
+  display: grid;
+  place-items: center;
+}
+
+.toprow #title {
+  flex: 60%;
+  text-align: center;
+}
+
+.MagellanContent {
+  height: 100%;
+  width: 100%;
+  background-color: ivory;
+}
+
+.UserInfo {
+  padding: 20px;
+  margin-top: 10px;
+}
