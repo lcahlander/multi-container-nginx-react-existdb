@@ -1,5 +1,5 @@
 # Pull in the from the official nginx image.
-FROM nginx:latest
+FROM nginx:1-bullseye
 
 EXPOSE 80
 
