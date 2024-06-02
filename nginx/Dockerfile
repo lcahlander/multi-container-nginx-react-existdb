@@ -1,5 +1,5 @@
 # Pull in the from the official nginx image.
-FROM nginx:1.25.3
+FROM nginx:1.26.1
 
 EXPOSE 80
 
